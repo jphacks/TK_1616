@@ -15,7 +15,6 @@
 (def em (load-model em-path))
 (println "Loaded embedding")
 
-
 (defroutes app-routes
   (GET "/" [] "Hello World")
   (GET "/text2morphs" {params :params} (apply str (interpose ", "(text2morphs (:text params)))))
