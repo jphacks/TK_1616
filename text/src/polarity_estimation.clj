@@ -58,6 +58,7 @@
 (defn polarity-estimation-from-text
   [em dic text]
   (->> (text2words text "名詞")
+       (filter #(get em %))
        (mapv (fn[word]
                (let [it (first (polarity-estimation em dic word))]
                  (assoc it :word word :most-sim-word (:word it)))))))
