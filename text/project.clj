@@ -9,6 +9,7 @@
                  [ring/ring-jetty-adapter "1.2.0"]
                  [environ "0.2.1"]
                  [http-kit "2.1.2"]
+                 [org.clojure/data.json "0.2.6"]
                  [ring "1.4.0"]]
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler text.handler/app}
