@@ -1,6 +1,7 @@
 (ns polarity-estimation
   (:require [clojure.string :refer [split]]
-            [taoensso.nippy :refer [thaw-from-in!]]))
+            [taoensso.nippy :refer [thaw-from-in!]]
+            [goo :refer [text2words]]))
 
 (defn load-model [target-path]
   (with-open [w (clojure.java.io/input-stream target-path)]
@@ -48,10 +49,22 @@
 
 ;; (vec {"word1" 5 "word2" 1})
 
-(defn polarity-estimation-by-file
-  [em dic-path target-word]
-  (let [ratings (split (slurp dic-path) #"\n")
-        dic (->> ratings
-                 (mapv #(split % #",")))]
-    (polarity-estimation em  dic target-word)))
+(defn load-polarity-file [dic-path]
+  (let [ratings (split (slurp dic-path) #"\n")]
+    (->> ratings
+         (mapv #(split % #",")))))
+
+
+(defn polarity-estimation-from-text
+  [em dic text]
+  (->> (text2words text "名詞")
+       (mapv (fn[word]
+               (let [it (first (polarity-estimation em dic word))]
+                 (assoc it :word word :most-sim-word (:word it)))))))
+
+
+
+
+
+;; (polarity-from-utt nil "隣の客はよく柿食う客だ")
 

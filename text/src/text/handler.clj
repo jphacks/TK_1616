@@ -7,8 +7,8 @@
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
             [environ.core :refer [env]]
             [clojure.data.json :as json]
-            [goo :refer [text2morphs text2nouns]]
-            [polarity-estimation :refer [load-model polarity-estimation-by-file]]))
+            [goo :refer [text2morphs text2words]]
+            [polarity-estimation :refer [load-model load-polarity-file polarity-estimation polarity-estimation-from-text]]))
 
 (def em-path "twitter_newspaper_200h_top100000.embedding")
 (println (str  "Loading " em-path " ..."))
@@ -17,10 +17,19 @@
 
 (defroutes app-routes
   (GET "/" [] "Hello World")
+  (GET "/em" {params :params}
+       (if-let [it (get em (:word params))]
+         (apply str it)
+         "no result"))
   (GET "/text2morphs" {params :params} (apply str (interpose ", "(text2morphs (:text params)))))
-  (GET "/text2nouns"  {params :params} (apply str (interpose ", "(text2nouns (:text params)))))
+  (GET "/text2words"  {params :params} (apply str (interpose ", "(text2words (:text params) "名詞"))))
   (GET "/polarity-estimation" {params :params}
-       (let [result (polarity-estimation-by-file em "polarity.csv" (:word params))]
+       (let [result (polarity-estimation em (load-polarity-file "polarity.csv") (:word params))]
+         (if (= "true" (:debug params))
+           (apply str (interpose "<BR>" result))
+           (json/write-str result))))
+  (GET "/polarity-estimation-from-text" {params :params}
+       (let [result (polarity-estimation-from-text em (load-polarity-file "polarity.csv") (:text params))]
          (if (= "true" (:debug params))
            (apply str (interpose "<BR>" result))
            (json/write-str result))))

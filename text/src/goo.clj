@@ -16,14 +16,13 @@
         first)))
 
 
-(defn text2nouns [text]
+(defn text2words
+  [text & [part]]
   (->> (text2morphs text)
-       (filter #(= (second %) "名詞"))
+       (filter #(if part (= (second %) part) identity))
        (map first)
        (remove #(some (fn[x] (= x %)) ["何" "なに" "好き"]))
        distinct))
 
 
-(text2nouns "隣の客はよく柿食う客だ")
-
-(text2morphs "隣の客はよく柿食う客だ")
+;; (text2words "明日を走る" "名詞")
