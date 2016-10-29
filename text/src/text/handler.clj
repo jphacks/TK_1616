@@ -10,7 +10,7 @@
             [goo :refer [text2morphs text2nouns]]
             [polarity-estimation :refer [load-model polarity-estimation-by-file]]))
 
-(def em-path "twitter_newspaper_200.embedding")
+(def em-path "twitter_newspaper_200h_top100000.embedding")
 (println (str  "Loading " em-path " ..."))
 (def em (load-model em-path))
 (println "Loaded embedding")
