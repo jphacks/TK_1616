@@ -1,19 +1,18 @@
-# text
+# Launch
 
-FIXME
+```
+cd project_root/text/
+```
 
-## Prerequisites
+```
+lein run 3003
+```
 
-You will need [Leiningen][] 2.0.0 or above installed.
+## Polarity Estimation
 
-[leiningen]: https://github.com/technomancy/leiningen
+go to `localhost:3003/polarity-estimation?word=いい&debug=true`
 
-## Running
+## You can rebuild polarity dictionary
 
-To start a web server for the application, run:
+check out `polarity.csv`
 
-    lein ring server
-
-## License
-
-Copyright © 2016 FIXME

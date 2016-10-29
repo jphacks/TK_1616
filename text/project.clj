@@ -10,7 +10,8 @@
                  [environ "0.2.1"]
                  [http-kit "2.1.2"]
                  [org.clojure/data.json "0.2.6"]
-                 [ring "1.4.0"]]
+                 [ring "1.4.0"]
+                 [com.taoensso/nippy "2.11.1"]]
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler text.handler/app}
   :main text.handler
