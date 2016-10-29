@@ -1,18 +1,16 @@
 # Launch
 
 ```
-cd project_root/text/
-```
-
-```
-lein run 3003
+$ cd project_root/text/
+$ lein run 3003
 ```
 
 ## Polarity Estimation
 
-go to `localhost:3003/polarity-estimation?word=いい&debug=true`
+- go to `localhost:3003/polarity-estimation?word=いい&debug=true`
 
 ## You can rebuild polarity dictionary
 
-check out `polarity.csv`
+- check out `polarity.csv`
+- then, restart your server ($ lein run 3003)
 
