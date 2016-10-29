@@ -1,7 +1,7 @@
 # Launch
 
 ```
-$ cd project_root/text/
+$ cd ~project_root/text/
 $ lein run 3003
 ```
 
