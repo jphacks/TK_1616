@@ -4,6 +4,8 @@
   + Liao
 - SpeechRecognition
   + 二又
+- LipSync & VoiceFunction
+  + 清水
 
 - その他必要に応じて作成してよし
 
@@ -27,11 +29,11 @@
 ## 開発技術
 ### 活用した外部技術
 #### API・データ
-* 
+* VoiceText Web API
 * 
 
 #### フレームワーク・ライブラリ・モジュール
-* 
+* OVRLipSync
 * 
 
 #### デバイス
