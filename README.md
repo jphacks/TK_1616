@@ -25,6 +25,7 @@
 ## 開発技術
 ### 活用した外部技術
 #### API・データ
+* SkyWay SpeechRecognition
 * goo/形態素解析
 * VoiceText Web API
 
