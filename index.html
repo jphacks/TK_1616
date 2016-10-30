@@ -10,15 +10,16 @@
         <script src="/socket.io/socket.io.js"></script>
         <script>
 
-    var socket = io();
-    var data = {};
-    socket.on("Start_rec", function(){
+    var socket = io("http://localhost:3000");
+    
+    socket.on("start_rec", function(){
+            console.log("test");
             StartRec();
     });
     
     socket.on("ShowResult", function(data){
-            console.log(data.value);
-            showResult(data.value);
+            console.log(data);
+            showResult(data);
     });
     
     function StartRec(){
@@ -79,15 +80,16 @@
     });
     
     SpeechRec.on_proc(function(info){
-        console.log(info.volume);
+        console.log(info);
         socket.on('result', 'success');
     });
        
     SpeechRec.on_result(function(result){
         $("#info").text("The result of speech recognition is below this")
         $("#result").text(result.candidates[0].speech);
-        data = result.candidates[0].speech;
-        SendMessage();
+        var data = result.candidates[0].speech;
+        socket.emit('result', data);
+        ///SendMessage();
     });
 
     SpeechRec.on_no_result(function(result){

@@ -9,20 +9,24 @@ app.get('/',function(req, res){
         res.sendfile('index.html');
     });
 
-io.on('connection', function(socket){
+app.get('/result', function(req, res){
+        res.sendfile('result.html');
+    });
+
+io.sockets.on('connection', function(socket){
 
         socket.on('unity', function(){
-            socket.emit('Start_rec');
+            console.log("OK1");
+            io.sockets.emit('start_rec');
         });
 
         socket.on('result', function(msg){
-                socket.emit('ShowResult', {value: msg.value});
+                console.log(msg);
+                io.sockets.emit('ShowResult', msg);
         });
 });
 
 
-
-// サーバーをポート3000番で起動
 http.listen(3000, function(){
         console.log('listening on *:3000');
 });

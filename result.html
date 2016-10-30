@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>show result</title>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+    
+    var socket = io("http://localhost:3000");
+    
+    socket.on("ShowResult", function(data){
+            console.log(data);
+            showResult(data);
+    });
+
+    function Access(){
+            socket.emit("unity");
+    }
+
+    function ShowResult(data){
+            $("#show").text(data);
+    }
+
+    </script>
+
+<body>
+<h3>Web socket test page</h3>
+
+emit to the server: <button onclick="Access();">emit</button>
+<hr>
+<h4> receiving message</h4>
+Result:<div id="show"></div>
