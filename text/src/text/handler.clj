@@ -10,7 +10,8 @@
             [goo :refer [text2morphs text2words]]
             [polarity-estimation :refer [load-model load-polarity-file polarity-estimation polarity-estimation-from-text]]
             [topic :refer [topic-likelihood]]
-            [chat :refer [preference-reply]]))
+            [chat :refer [preference-reply script-chat]]))
+
 
 (def wl-path "twitter_newspaper.wl")
 (println (str "Loading " wl-path " ..."))
@@ -20,6 +21,11 @@
 (println (str  "Loading " em-path " ..."))
 (def em (load-model em-path))
 (println "Done")
+(def polarity-path "polarity.csv")
+(println (str "Loading " polarity-path " ..."))
+(def polarity-dic (load-polarity-file polarity-path))
+(println "done")
+
 
 (defroutes app-routes
   (GET "/" [] "Hello World")
@@ -41,12 +47,17 @@
            (apply str (interpose "<BR>" result))
            (json/write-str result))))
   (GET "/polarity-estimation-from-text" {params :params}
-       (let [result (polarity-estimation-from-text em (load-polarity-file "polarity.csv") (:text params))]
+       (let [result (polarity-estimation-from-text em polarity-dic (:text params))]
          (if (= "true" (:debug params))
            (apply str (interpose "<BR>" result))
            (json/write-str result))))
   (GET "/preference-reply" {params :params}
-       (apply str (preference-reply (:text params) wl)))
+       (apply str (preference-reply (:text params) wl em polarity-dic)))
+  (GET "/script-chat" {params :params}
+       (let [result (script-chat (keyword (:reply-key params)) (:text params) wl em polarity-dic)]
+         (if (= "true" (:debug params))
+           (apply str (interpose "<BR>" result))
+           (json/write-str result))))
   (route/not-found "Not Found"))
 
 (def app
