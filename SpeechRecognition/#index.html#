@@ -7,7 +7,7 @@
         <script src="https://skyway.io/dist/libspeexdsp.js"></script>
         <script src="https://skyway.io/dist/resampler.min.js"></script>
         <script src="https://skyway.io/dist/speechrec.min.js"></script>
-        <script src="/socket.io/socket.io.js"></script>
+        <script src="/socket.io/socket.io.js"></script>-
 	
         <script>
 

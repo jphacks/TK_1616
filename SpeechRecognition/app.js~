@@ -1,0 +1,12 @@
+var ws    = require('ws').Server;
+
+
+var unityServer = new ws({port: UNITY_PORT});
+unityServer.on('connection', function(ws) {
+    console.log('Unity connected!');
+    unityWebSockets.push(ws);
+    ws.on('close', function() {
+	console.log('Unity disconnected...');
+	unityWebSockets.splice(unityWebSockets.indexOf(ws), 1);
+    });
+});
