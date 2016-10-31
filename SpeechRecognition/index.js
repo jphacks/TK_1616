@@ -14,7 +14,7 @@ app.get('/result', function(req, res){
     });
 
 io.sockets.on('connection', function(socket){
-
+    console.log("socket-> "+socket);
         socket.on('unity', function(){
             console.log("OK1");
             io.sockets.emit('start_rec');
