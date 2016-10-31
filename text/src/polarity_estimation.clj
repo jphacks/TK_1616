@@ -50,7 +50,7 @@
 ;; (vec {"word1" 5 "word2" 1})
 
 (defn load-polarity-file [dic-path]
-  (let [ratings (split (slurp dic-path) #"\n")]
+  (let [ratings (split (slurp dic-path) #"\r\n|\n|\r")]
     (->> ratings
          (mapv #(split % #",")))))
 
