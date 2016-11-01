@@ -22,7 +22,7 @@
 	  function StartRec(){
             var Startrec = document.getElementById("start_rec");
             Startrec.click();
-	  }
+	  };
 	  
 	  
 	
@@ -47,30 +47,53 @@
 	});
 	
 	$("#start_rec").click(function(){
-        console.log(SpeechRec.availability());
-        SpeechRec.start();
-        $("#info").text("Processing....");
-        $("#result").text(" ");
+          console.log(SpeechRec.availability());
+          SpeechRec.start();
+          $("#info").text("Processing....");
+          $("#result").text(" ");
+	<!--
+	  setTimeout(function(){
+   	    console.log("timeout");
+	  },5000);
+	-->
 	});
 	
 	SpeechRec.on_proc(function(info){
-        console.log(info);
+          <!--console.log(info);-->
 	});
-
+	SpeechRec.on_voice_begin(function(){
+	  console.log("voice begin: ");
+	  webSocket.send("voice_begin");
+	});
+	SpeechRec.on_voice_end(function(info){
+	  console.log("voice end: "+info);
+	});
+	SpeechRec.on_ask(function(info){
+	  console.log("voice ask: "+info);
+	});
+	  
 	function sendMessage(sr){
 	  webSocket.send(sr);
   	  console.log("sent message");
-	};
+	  };
 	
 	SpeechRec.on_result(function(result){
-        $("#info").text("The result of speech recognition is below this")
-	var resultText = result.candidates[0].speech;
-        var data = result.candidates[0].speech;
-	console.log(resultText);
-	sendMessage(resultText);
-	$("#result").text(resultText);
+          $("#info").text("The result of speech recognition is below this")
+	  var resultText = result.candidates[0].speech;
+          var data = result.candidates[0].speech;
+	  console.log(resultText);
+	  sendMessage(resultText);
+	  $("#result").text(resultText);
 	});
-	
+
+	SpeechRec.on_no_result(function(result){
+          $("#info").text("The result of speech recognition is below this")
+	  var resultText = "<no result>";
+	  console.log(resultText);
+	  sendMessage(resultText);
+	  $("#result").text(resultText);
+	});
+	  
 	SpeechRec.on_no_result(function(result){
         $("info").text("No result");
         console.log("No result");
