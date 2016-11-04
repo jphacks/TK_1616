@@ -1,9 +1,12 @@
 
 # Conversation System&Evaluation
 
-```
+- launch
+*lein run 3003*
 
-```
+-- checkout your proxy connection
+
+
 
 # Speech Recognition
 
