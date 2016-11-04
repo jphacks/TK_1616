@@ -36,42 +36,38 @@ console.log('Server running at http://localhost:' + webPort + '/');
 */
 
 
-var unityWebSockets = [];
-var srWebSockets = [];
+var unityWebSocket = null;
+var srWebSocket = null;
 
 var unityServer = new ws({port: 3000});
 var srServer = new ws({port: 3002});
 
 unityServer.on('connection', function(ws) {
     console.log('Unity connected!');
-    unityWebSockets.push(ws);
+    unityWebSocket = ws;
     ws.on('message', function(message) {
 	console.log("from Unity=> "+message);
-	srWebSockets.forEach(function(srWebSocket) {
-	    console.log("to "+  srWebSocket + "=> " + message);
-	    srWebSocket.send(message);
-	});
+	console.log("to "+  srWebSocket + "=> " + message);
+	srWebSocket.send(message);
     });
     ws.on('close', function() {
 	console.log('Unity disconnected...');
-
+	unityWebSocket = null;
     });
 });
 
 
 srServer.on('connection', function(ws) {
     console.log('Browser connected!');
-    srWebSockets.push(ws);
+    srWebSocket = ws;
     ws.on('message', function(message) {
 	console.log("from browser=> "+message);
-	unityWebSockets.forEach(function(unityWebSocket) {
-	    console.log("to "+  unityWebSocket + "going to send => " + message);
-	    unityWebSocket.send(message);
-	});
+	console.log("to "+  unityWebSocket + "going to send => " + message);
+	unityWebSocket.send(message);
     });
     ws.on('close', function() {
 	console.log('Browser disconnected...');
-
+	srWebSocket = null;
     });
 });
 
