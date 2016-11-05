@@ -10,7 +10,10 @@
 
 # Speech Recognition
 
+- Use Speech Recognition
+  + `$ node app.js`
+- When not use Speech Recognition
+  + `$ node app.js 音声認識しない`
 
-- $ node app.js
 - go to `http://localhost:3001/sr.html`
 - Launch Unity
