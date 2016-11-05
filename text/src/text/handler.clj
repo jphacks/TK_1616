@@ -7,10 +7,12 @@
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
             [environ.core :refer [env]]
             [clojure.data.json :as json]
+            [clojure.java.io :refer (reader)]
             [goo :refer [text2morphs text2words]]
             [polarity-estimation :refer [load-model load-polarity-file polarity-estimation polarity-estimation-from-text]]
             [topic :refer [topic-likelihood]]
-            [chat :refer [preference-reply script-chat]]))
+            [chat :refer [preference-reply script-chat]]
+            [feedback :refer [save-feedback]]))
 
 
 (def wl-path "twitter_newspaper.wl")
@@ -58,11 +60,21 @@
          (if (= "true" (:debug params))
            (apply str (interpose "<BR>" result))
            (json/write-str result))))
+  (POST "/feedback" request
+        (let [r request
+              _(println request)
+              body (.readLine (reader (:body request)))
+              fb (json/read-str body)]
+          (println body)
+          (println fb)
+         (save-feedback fb)
+         {:body "ok" :content-type :json :as :json}))
   (route/not-found "Not Found"))
 
 (def app
   (-> #'app-routes
-      (wrap-defaults site-defaults)
+;;       (wrap-defaults site-defaults)
+      (wrap-defaults (assoc-in site-defaults [:security :anti-forgery] false))
       handler/site
       (wrap-reload)
       ))
