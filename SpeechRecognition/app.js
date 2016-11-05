@@ -62,8 +62,12 @@ srServer.on('connection', function(ws) {
     srWebSocket = ws;
     ws.on('message', function(message) {
 	console.log("from browser=> "+message);
-	console.log("to "+  unityWebSocket + "going to send => " + message);
-	unityWebSocket.send(message);
+	if(unityWebSocket){
+	    console.log("to "+  unityWebSocket + "going to send => " + message);
+	    unityWebSocket.send(message);
+	}else{
+	    console.log("There is no connection to Unity");
+	}
     });
     ws.on('close', function() {
 	console.log('Browser disconnected...');
