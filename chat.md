@@ -27,7 +27,7 @@ G ? H : I Gの時H、そうでなければI
  "disclosureReply" : {"action":"action1", "point":10},
  "userHobby"       : {"keyword":"釣り",    "point":0},
  "cousineAsk"      : {"action":"action3", "point":0},
- "askDinner"       : {"action":"action1", "poinnt":10},
+ "askDinner"       : {"action":"action1", "point":10},
  "userLineID"      : "XXX",
  "sum"             : 80
 }
