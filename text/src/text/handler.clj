@@ -61,13 +61,20 @@
            (apply str (interpose "<BR>" result))
            (json/write-str result))))
   (POST "/feedback" request
-       (let [fb (json/read-str (.readLine (reader (:body request))))]
-         (save-feedback fb)))
+        (let [r request
+              _(println request)
+              body (.readLine (reader (:body request)))
+              fb (json/read-str body)]
+          (println body)
+          (println fb)
+         (save-feedback fb)
+         {:body "ok" :content-type :json :as :json}))
   (route/not-found "Not Found"))
 
 (def app
   (-> #'app-routes
-      (wrap-defaults site-defaults)
+;;       (wrap-defaults site-defaults)
+      (wrap-defaults (assoc-in site-defaults [:security :anti-forgery] false))
       handler/site
       (wrap-reload)
       ))

@@ -7,7 +7,7 @@
 
 (defn back-channnel?
   [text]
-  (re-find #"そうなんだ|へー" text))
+  (re-find #"そうなんだ|へー|ふーん|ほう" text))
 
 (defn good-reply4disclosure?
   [text disclosure-kword]
