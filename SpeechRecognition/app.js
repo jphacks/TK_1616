@@ -35,7 +35,15 @@ console.log('Server running at http://localhost:' + webPort + '/');
 
 */
 
+no_sr = process.argv[2];
+no_sr = no_sr ? no_sr : null;
 
+console.log(no_sr);
+if(no_sr){
+    console.log("No Speech Recognition");
+}else{
+    console.log("Do a Speech Recognition");
+}
 var unityWebSocket = null;
 var srWebSocket = null;
 
@@ -47,8 +55,15 @@ unityServer.on('connection', function(ws) {
     unityWebSocket = ws;
     ws.on('message', function(message) {
 	console.log("from Unity=> "+message);
-	console.log("to "+  srWebSocket + "=> " + message);
-	srWebSocket.send(message);
+
+
+	if(no_sr){
+	    console.log("No Speech Recognition");
+	    unityWebSocket.send(no_sr);
+	}else{
+	    console.log("to "+  srWebSocket + "=> " + message);
+	    srWebSocket.send(message);
+	}
     });
     ws.on('close', function() {
 	console.log('Unity disconnected...');
