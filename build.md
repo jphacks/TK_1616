@@ -4,7 +4,7 @@
 - launch
 *lein run 3003*
 
--- checkout your proxy connection
+  +  checkout your proxy connection
 
 
 
