@@ -2,7 +2,8 @@
 # Conversation System&Evaluation
 
 - launch
-*lein run 3003*
+
+  + `$ lein run 3003`
 
   +  checkout your proxy connection
 
