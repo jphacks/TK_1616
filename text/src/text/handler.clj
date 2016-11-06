@@ -56,7 +56,7 @@
   (GET "/preference-reply" {params :params}
        (apply str (preference-reply (:text params) wl em polarity-dic)))
   (GET "/script-chat" {params :params}
-       (let [result (script-chat (keyword (:reply-key params)) (:text params) wl em polarity-dic)]
+       (let [result (script-chat (keyword (:reply-key params)) (:text params) wl em polarity-dic (:sum-point params))]
          (if (= "true" (:debug params))
            (apply str (interpose "<BR>" result))
            (json/write-str result))))
