@@ -54,7 +54,7 @@
 * 単語分散表現からの初対面時における使用単語の極性推定 [[コード](https://github.com/jphacks/TK_1616/blob/master/text/src/polarity_estimation.clj), [学習データ](https://github.com/jphacks/TK_1616/blob/master/text/polarity.csv), [Demo](https://github.com/jphacks/TK_1616/blob/master/text/README.md)]
 * トレーニングで活用する対話管理部[[コード](https://github.com/jphacks/TK_1616/blob/master/text/src/chat.clj) ]
 * websocketを活用し、任意のタイミングで音声認識を開始/終了できるように [[コード](https://github.com/jphacks/TK_1616/blob/master/SpeechRecognition/app.js)]
-* Advanced Game system controller: control and compute whole system flow and game scene // connect Unity with 2 external server and 1 Database [[code]](https://github.com/jphacks/TK_1616/blob/master/Unity/StoryManager_Ver2.cs)
+* Advanced Game system controller: control and compute whole system flow and game scene // connect Unity with 2 external server and 1 database [[code]](https://github.com/jphacks/TK_1616/blob/master/Unity/StoryManager_Ver2.cs)
 * VR Interaction GUI (Look Selection Controller): calculate the Look Input in VR environment[[code]](https://github.com/jphacks/TK_1616/blob/master/Unity/LookInputModule_Ver2.cs)
 
 #### 研究内容（任意）
