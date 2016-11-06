@@ -1,6 +1,6 @@
 # Demo
 
-- polarity estimation
+### polarity estimation
 
 ```
 http://localhost:3003/polarity-estimation-from-text?text=お金と開発が好きです&debug=true
