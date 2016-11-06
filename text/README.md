@@ -1,3 +1,13 @@
+# Demo
+
+- polarity estimation
+
+```
+http://localhost:3003/polarity-estimation-from-text?text=お金と開発が好きです&debug=true
+```
+  + "お金"は"給料"に似ているため低評価
+  + "開発"は"成功"に似ているから高評価
+
 # Launch
 
 ```
