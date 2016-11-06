@@ -27,7 +27,7 @@
 ### 活用した外部技術
 #### API・データ
 * SkyWay SpeechRecognition
-* goo/形態素解析
+* goo/形態素解析 [使用したコード](https://github.com/jphacks/TK_1616/blob/master/text/src/goo.clj)
 * VoiceText Web API
 
 #### フレームワーク・ライブラリ・モジュール
@@ -40,7 +40,7 @@
 ### 独自技術
 #### 期間中に開発した独自機能・技術
 * 単語分散表現からの初対面時における使用単語の極性推定[[コード](https://github.com/jphacks/TK_1616/blob/master/text/src/polarity_estimation.clj),[学習データ](https://github.com/jphacks/TK_1616/blob/master/text/polarity.csv)]
-* 1文内おける重要語抽出
+* トレーニングで活用する対話管理部[コード](https://github.com/jphacks/TK_1616/blob/master/text/src/chat.clj)
 * （ファイルリンクとcommit_idを記載したほうがよい）
 
 #### 研究内容（任意）
