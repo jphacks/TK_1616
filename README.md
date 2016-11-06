@@ -26,8 +26,8 @@
 ## 開発技術
 ### 活用した外部技術
 #### API・データ
-* SkyWay SpeechRecognition
-* goo/形態素解析 [使用したコード](https://github.com/jphacks/TK_1616/blob/master/text/src/goo.clj)
+* SkyWay SpeechRecognition [[使用しコード](https://github.com/jphacks/TK_1616/blob/master/SpeechRecognition/sr.html)]
+* goo/形態素解析 [[使用したコード](https://github.com/jphacks/TK_1616/blob/master/text/src/goo.clj)]
 * VoiceText Web API
 
 #### フレームワーク・ライブラリ・モジュール
