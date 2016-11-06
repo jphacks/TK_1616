@@ -2,9 +2,6 @@
 import os
 import sys
 
-from argparse import ArgumentParser
-from janome.tokenizer import Tokenizer
-
 from flask import Flask, request, abort
 from linebot import (
     LineBotApi, WebhookHandler
@@ -16,17 +13,19 @@ from linebot.models import (
     MessageEvent, FollowEvent, TextMessage, TextSendMessage,
 )
 import settings
-import messages
-
+import feedback
+import get_feedback 
 from doco.client import Client
-
 from pymongo import MongoClient
-
-#docomo conversation api
-API_KEY = settings.API_KEY
 
 
 app = Flask(__name__)
+
+#docomo conversation api key
+docomo_api_key = settings.DOCOMO_API_KEY
+if docomo_api_key is None:
+    print("DOCOMO_API_KEY not found")
+    sys.exit(1)
 
 # get channel_secret and channel_access_token from your environment variable
 channel_secret = settings.CHANNEL_SECRET
@@ -42,6 +41,10 @@ if channel_access_token is None:
 #process line api keys
 line_bot_api = LineBotApi(channel_access_token)
 handler = WebhookHandler(channel_secret)
+
+#process docomo api key
+user = settings.user_config
+doco = Client(docomo_api_key, user=user)
 
 
 @app.route("/callback", methods=['POST'])
@@ -63,25 +66,26 @@ def callback():
 
 
 
+
 @handler.add(MessageEvent, message=TextMessage)
 def message_text(event):
     
     #docomo dialogue api
-    user = {'nickname':'千歳', 'nickname_y':'チトセ', 'sex':'女', 'bloodtype':'B', 'birthdateY':'1996', 'birthdateM':12, 'birthdateD':15, 'age':20, 'constellations':'射手座', 'place':'東京'}
-    c = Client(API_KEY, user=user)
     msg = event.message.text
-    response = c.send(utt=msg, apiname="Dialogue")
-    
-    # information wihch is used for feching evaluation 
-    lineid = event.source.user_id
-    profile = line_bot_api.get_profile(lineid) 
-    
-    # if you sent a message saying "評価", you can get evaluation reply from line bot 
+    response = doco.send(utt=msg, apiname="Dialogue")
+
+
+    # when you sent a specific message, you can get evaluation reply from line bot 
     # otherwise, you can just communicate with the bot
     if "評価" == event.message.text:
+        
+        # get message from MongoDb
+        msg = get_feedback.getreport(event)
+
+        # send an evaluation message
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=messages.evaluation)
+            TextSendMessage(text=msg)
         )
     else:
         line_bot_api.reply_message(
@@ -90,52 +94,23 @@ def message_text(event):
         )
 
 
-"""
-    # get user information from user mid for fetching user name, which is displayed on his/hers line account
-    # and from this information, fetch the final evaluation discription from mongoDB
-    lineid = event.source.user_id
-    profile = line_bot_api.get_profile(lineid)
-
-    #connect to mongoDB
-    client = MongoClient(settings.DB_URI)
-    db = client['comutrain']
-    cols = db.feedback
-
-"""
-
+# it starts when user follow this bot
 @handler.add(FollowEvent)
 def follow(event):
 
-    # the message, witch is sent when user add this account.
-    msg = messages.addfriend
+
+    #get message from MongoDb
+    msg = get_feedback.getereport(event)
     
-    lineid = event.source.user_id
-    profile = line_bot_api.get_profile(lineid)
+    # create message, which is sent when user add this bot as a friend
+    msg = "LINE追加ありがとう(happy)\n" + msg
 
-
+    # send an evaluation message
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=msg)
     )
 
-"""
-    #connect to mongoDB
-    client = MongoClient(settings.DB_URI)
-    db = client['comutrain']
-    cols = db.feedback
-"""
-
-
     
 if __name__ == "__main__":
-    """
-    arg_parser = ArgumentParser(
-        usage='Usage: python ' + __file__ + ' [--port <port>] [--help]'
-    )
-    arg_parser.add_argument('-p', '--port', default=8000, help='port')
-    arg_parser.add_argument('-d', '--debug', default=False, help='debug')
-    options = arg_parser.parse_args()
-
-    app.run(debug=options.debug, port=options.port)
-    """
     app.run()

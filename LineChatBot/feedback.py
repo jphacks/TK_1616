@@ -28,7 +28,7 @@ def makeReport(feedbackJson):
     askDinnerAction  = askDinner["action"]
     askDinnerPoint   = askDinner["point"]
     report5          = u"料理に自然に誘えてたのは良かったね。" if askDinnerPoint > 0 else u"自然に料理に誘えなかったね。"
-    report           = report1+u"それと"+report2+u"あと"+report3+u"他には"+report4+u"最後に"+report5
+    report           = report1+u"\nそれと"+report2+u"\nあと"+report3+u"\n他には"+report4+u"\n最後に"+report5
     return report
 
 #print makeReport(sampleJson)
