@@ -57,6 +57,5 @@
 * websocketを活用し、任意のタイミングで音声認識を開始/終了できるように [[コード](https://github.com/jphacks/TK_1616/blob/master/SpeechRecognition/app.js)]
 * Advanced Game system controller: control and compute whole system flow and game scene // connect Unity with 2 external server and 1 database [[code]](https://github.com/jphacks/TK_1616/blob/master/Unity/StoryManager_Ver2.cs)
 * VR Interaction GUI (Look Selection Controller): calculate the Look Input in VR environment[[Input code]](https://github.com/jphacks/TK_1616/blob/master/Unity/LookInputModule_Ver2.cs), [[GUI code]](https://github.com/jphacks/TK_1616/blob/master/Unity/CountDown.cs)
-GUI
 #### 研究内容（任意）
 * もし、製品に研究内容を用いた場合は、研究内容の詳細及び具体的な活用法について、こちらに記載をしてください。
