@@ -1,4 +1,5 @@
 (ns text.handler
+  (:gen-class)
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
             [compojure.handler :as handler]
@@ -67,13 +68,13 @@
               fb (json/read-str body)]
           (println body)
           (println fb)
-         (save-feedback fb)
-         {:body "ok" :content-type :json :as :json}))
+          (save-feedback fb)
+          {:body "ok" :content-type :json :as :json}))
   (route/not-found "Not Found"))
 
 (def app
   (-> #'app-routes
-;;       (wrap-defaults site-defaults)
+      ;;       (wrap-defaults site-defaults)
       (wrap-defaults (assoc-in site-defaults [:security :anti-forgery] false))
       handler/site
       (wrap-reload)
