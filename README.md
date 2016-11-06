@@ -45,6 +45,7 @@
 * word2vec(実装は自作)
 * OVRLipSync
 * OVR Rig
+* MMD4Mecanim
 
 #### デバイス
 * Oculus Rift
