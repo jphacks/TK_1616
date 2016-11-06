@@ -17,6 +17,7 @@
             [lein-environ "1.1.0"]]
   :ring {:handler text.handler/app}
   :main text.handler
+  :aot  [text.handler]
   :profiles
   {:dev {
          :env {:env :dev
