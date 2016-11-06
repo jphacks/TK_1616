@@ -11,7 +11,7 @@ $ lein run 3003
 - for a word
   + go to `http://localhost:3003/polarity-estimation?word=いい&debug=true`
 - for a text
-  + got to `http://localhost:3003/polarity-estimation-from-text?text=隣の客はよく柿食う客だ&debug=true`
+  + go to `http://localhost:3003/polarity-estimation-from-text?text=隣の客はよく柿食う客だ&debug=true`
 - Notion: this polarity should not be common word sense, but impression for a first time communication
 
 
@@ -25,8 +25,9 @@ $ lein run 3003
 
 ```
 http://localhost:3003/script-chat?text=動画が好きです&reply-key=preference&debug=true
+http://localhost:3003/script-chat?text=料理できるんですね&reply-key=disclosure&debug=true
 http://localhost:3003/script-chat?text=運動が好きです&reply-key=hobby&debug=true
-http://localhost:3003/script-chat?text=イタリアンもいい&reply-key=food&debug=true
-
+http://localhost:3003/script-chat?text=イタリアンもいい&reply-key=ask-cousine&debug=true
+http://localhost:3003/script-chat?text=今度イタリアンでも食べに行きましょう&reply-key=ask-dinner&debug=true&sum-point=70
 ```
 
