@@ -41,7 +41,7 @@
 * VoiceText Web API
 
 #### フレームワーク・ライブラリ・モジュール
-* word2vec
+* word2vec(実装は自作)
 * OVRLipSync
 
 #### デバイス
