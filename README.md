@@ -40,7 +40,8 @@
 * goo/形態素解析 [[使用したコード](https://github.com/jphacks/TK_1616/blob/master/text/src/goo.clj)]
 * Line Messaging API [[使用したコード](https://github.com/jphacks/TK_1616/blob/master/LineChatBot/app.py)]
 * VoiceText Web API [[使用したコード](https://github.com/jphacks/TK_1616/blob/master/Unity/Girl_Speaking.cs)]
-
+*Game system controller: control and compute whole system flow and game scene in// connect Unity with 2 external server and 1 Database [code](https://github.com/jphacks/TK_1616/blob/master/Unity/StoryManager_Ver2.cs)
+*VR Interaction GUI (Look Selection Controller): calculate the Look Input in VR environment[code](https://github.com/jphacks/TK_1616/blob/master/Unity/LookInputModule_Ver2.cs)
 #### フレームワーク・ライブラリ・モジュール
 * word2vec(実装は自作)
 * OVRLipSync
