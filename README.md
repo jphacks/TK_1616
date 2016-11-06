@@ -1,6 +1,7 @@
 # DATE ME
 ## 製品概要
-### Edu-Tech?
+
+### Edu-Tech
 
 ### 背景（製品開発のきっかけ、課題等）
 
@@ -38,7 +39,7 @@
 * SkyWay SpeechRecognition [[使用したコード](https://github.com/jphacks/TK_1616/blob/master/SpeechRecognition/sr.html)]
 * goo/形態素解析 [[使用したコード](https://github.com/jphacks/TK_1616/blob/master/text/src/goo.clj)]
 * Line Messaging API [[使用したコード](https://github.com/jphacks/TK_1616/blob/master/LineChatBot/app.py)]
-* VoiceText Web API
+* VoiceText Web API [[使用したコード](https://github.com/jphacks/TK_1616/blob/master/Unity/Girl_Speaking.cs)]
 
 #### フレームワーク・ライブラリ・モジュール
 * word2vec(実装は自作)
