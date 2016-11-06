@@ -25,8 +25,9 @@ $ lein run 3003
 
 ```
 http://localhost:3003/script-chat?text=動画が好きです&reply-key=preference&debug=true
+http://localhost:3003/script-chat?text=料理できるんですね&reply-key=disclosure&debug=true
 http://localhost:3003/script-chat?text=運動が好きです&reply-key=hobby&debug=true
-http://localhost:3003/script-chat?text=イタリアンもいい&reply-key=food&debug=true
+http://localhost:3003/script-chat?text=イタリアンもいい&reply-key=ask-cousine&debug=true
 
 ```
 
