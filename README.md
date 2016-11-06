@@ -31,7 +31,7 @@
 #### API・データ
 * SkyWay SpeechRecognition [[使用しコード](https://github.com/jphacks/TK_1616/blob/master/SpeechRecognition/sr.html)]
 * goo/形態素解析 [[使用したコード](https://github.com/jphacks/TK_1616/blob/master/text/src/goo.clj)]
-* Line Messaging API[[使用したコード](https://github.com/jphacks/TK_1616/blob/master/LineChatBot/app.py)]
+* Line Messaging API [[使用したコード](https://github.com/jphacks/TK_1616/blob/master/LineChatBot/app.py)]
 * VoiceText Web API
 
 #### フレームワーク・ライブラリ・モジュール
@@ -43,8 +43,10 @@
 
 ### 独自技術
 #### 期間中に開発した独自機能・技術
-* 単語分散表現からの初対面時における使用単語の極性推定[[コード](https://github.com/jphacks/TK_1616/blob/master/text/src/polarity_estimation.clj),[学習データ](https://github.com/jphacks/TK_1616/blob/master/text/polarity.csv)]
+* 単語分散表現からの初対面時における使用単語の極性推定 [[コード](https://github.com/jphacks/TK_1616/blob/master/text/src/polarity_estimation.clj), [学習データ](https://github.com/jphacks/TK_1616/blob/master/text/polarity.csv)]
 * トレーニングで活用する対話管理部[[コード](https://github.com/jphacks/TK_1616/blob/master/text/src/chat.clj)]
+* websocketを活用し、任意のタイミングで音声認識を開始/終了できるように [[コード](https://github.com/jphacks/TK_1616/blob/master/SpeechRecognition/app.js)]
+
 
 #### 研究内容（任意）
 * もし、製品に研究内容を用いた場合は、研究内容の詳細及び具体的な活用法について、こちらに記載をしてください。
