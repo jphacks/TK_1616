@@ -100,10 +100,10 @@ def follow(event):
 
 
     #get message from MongoDb
-    msg = get_feedback.getereport(event)
+    msg = get_feedback.getreport(event)
     
     # create message, which is sent when user add this bot as a friend
-    msg = "LINE追加ありがとう(happy)\n" + msg
+    msg = "LINE追加ありがとう(^ω^)\n" + msg
 
     # send an evaluation message
     line_bot_api.reply_message(

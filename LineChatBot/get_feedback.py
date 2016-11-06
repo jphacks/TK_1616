@@ -22,7 +22,10 @@ def getreport(event):
     cols = db.feedback
     data = cols.find_one({'userLineID':name})
 
-    # create message from template
-    msg = feedback.makeReport(data)
+    if data is not None:
+        # create message from template
+        msg = feedback.makeReport(data)
+    else:
+        msg = "まだ会ったことないやん！"
 
     return msg
