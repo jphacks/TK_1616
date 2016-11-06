@@ -28,6 +28,6 @@ http://localhost:3003/script-chat?text=動画が好きです&reply-key=preferenc
 http://localhost:3003/script-chat?text=料理できるんですね&reply-key=disclosure&debug=true
 http://localhost:3003/script-chat?text=運動が好きです&reply-key=hobby&debug=true
 http://localhost:3003/script-chat?text=イタリアンもいい&reply-key=ask-cousine&debug=true
-
+http://localhost:3003/script-chat?text=今度イタリアンでも食べに行きましょう&reply-key=ask-dinner&debug=true&sum-point=70
 ```
 
