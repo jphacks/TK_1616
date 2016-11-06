@@ -12,8 +12,11 @@ http://localhost:3003/polarity-estimation-from-text?text=お金と開発が好�
 - "お金"は"給料"に似ているため低評価
 - "開発"は"成功"に似ているから高評価
 
+
 # Launch
 
+- install [leiningen](http://leiningen.org/)
+- follow this
 ```
 $ cd ~project_root/text/
 $ lein run 3003
