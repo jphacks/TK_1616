@@ -5,7 +5,7 @@
    [monger.collection :as mc]))
 
 
-(def connection (mg/connect-via-uri (env :feedback)))
+(def connection (mg/connect-via-uri "mongodb://klab:0nsayken9@ds143717.mlab.com:43717/comutrain"))
 (def conn (:conn connection))
 (def db   (:db connection))
 (def document "feedback")

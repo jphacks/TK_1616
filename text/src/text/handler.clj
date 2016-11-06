@@ -77,8 +77,7 @@
       ;;       (wrap-defaults site-defaults)
       (wrap-defaults (assoc-in site-defaults [:security :anti-forgery] false))
       handler/site
-      (wrap-reload)
-      ))
+      (wrap-reload)))
 
 (defn -main [& [port]]
   (let [port (Integer. (or port (env :port) 3003))]
