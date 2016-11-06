@@ -43,8 +43,8 @@
 
 ### 独自技術
 #### 期間中に開発した独自機能・技術
-* 単語分散表現からの初対面時における使用単語の極性推定 [[コード](https://github.com/jphacks/TK_1616/blob/master/text/src/polarity_estimation.clj), [学習データ](https://github.com/jphacks/TK_1616/blob/master/text/polarity.csv)]
-* トレーニングで活用する対話管理部[[コード](https://github.com/jphacks/TK_1616/blob/master/text/src/chat.clj)]
+* 単語分散表現からの初対面時における使用単語の極性推定 [[コード](https://github.com/jphacks/TK_1616/blob/master/text/src/polarity_estimation.clj), [学習データ](https://github.com/jphacks/TK_1616/blob/master/text/polarity.csv), [Demo](https://github.com/jphacks/TK_1616/blob/master/text/README.md)]
+* トレーニングで活用する対話管理部[[コード](https://github.com/jphacks/TK_1616/blob/master/text/src/chat.clj) ]
 * websocketを活用し、任意のタイミングで音声認識を開始/終了できるように [[コード](https://github.com/jphacks/TK_1616/blob/master/SpeechRecognition/app.js)]
 
 
