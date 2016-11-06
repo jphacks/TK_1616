@@ -21,13 +21,17 @@
 - より詳細なフィードバック
 
 ### 注力したこと（こだわり等）
+
+- VR HMDを用いた没入感/緊張感のあるコミュニケーション・トレーニングシステム
 - 単語の極性評価/適した単語を活用して自己紹介を行えているかの評価に使用
+- Line botを活用したトレーニングのフィードバック
 
 ## 開発技術
 ### 活用した外部技術
 #### API・データ
 * SkyWay SpeechRecognition [[使用しコード](https://github.com/jphacks/TK_1616/blob/master/SpeechRecognition/sr.html)]
 * goo/形態素解析 [[使用したコード](https://github.com/jphacks/TK_1616/blob/master/text/src/goo.clj)]
+* Line Messaging API[[使用したコード](https://github.com/jphacks/TK_1616/blob/master/LineChatBot/app.py)]
 * VoiceText Web API
 
 #### フレームワーク・ライブラリ・モジュール
@@ -41,7 +45,6 @@
 #### 期間中に開発した独自機能・技術
 * 単語分散表現からの初対面時における使用単語の極性推定[[コード](https://github.com/jphacks/TK_1616/blob/master/text/src/polarity_estimation.clj),[学習データ](https://github.com/jphacks/TK_1616/blob/master/text/polarity.csv)]
 * トレーニングで活用する対話管理部[[コード](https://github.com/jphacks/TK_1616/blob/master/text/src/chat.clj)]
-* （ファイルリンクとcommit_idを記載したほうがよい）
 
 #### 研究内容（任意）
 * もし、製品に研究内容を用いた場合は、研究内容の詳細及び具体的な活用法について、こちらに記載をしてください。
