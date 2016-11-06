@@ -29,7 +29,7 @@
 ## 開発技術
 ### 活用した外部技術
 #### API・データ
-* SkyWay SpeechRecognition [[使用しコード](https://github.com/jphacks/TK_1616/blob/master/SpeechRecognition/sr.html)]
+* SkyWay SpeechRecognition [[使用したコード](https://github.com/jphacks/TK_1616/blob/master/SpeechRecognition/sr.html)]
 * goo/形態素解析 [[使用したコード](https://github.com/jphacks/TK_1616/blob/master/text/src/goo.clj)]
 * Line Messaging API [[使用したコード](https://github.com/jphacks/TK_1616/blob/master/LineChatBot/app.py)]
 * VoiceText Web API
