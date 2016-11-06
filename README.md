@@ -44,6 +44,7 @@
 #### フレームワーク・ライブラリ・モジュール
 * word2vec(実装は自作)
 * OVRLipSync
+* OVR Rig
 
 #### デバイス
 * Oculus Rift
